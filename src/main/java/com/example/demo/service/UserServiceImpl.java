@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
     UserDAO dao;
 
     @Override
-    public User getUserById(long id) {
+    public User getUserById(Long id) {
         return dao.findById(id).get();
     }
 
@@ -24,12 +24,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUserById(String name, String lastName, byte age, long id) {
+    public void updateUserById(String name, String lastName, Byte age, Long id) {
         dao.updateUserById(name, lastName, age, id);
     }
 
     @Override
-    public void removeUserById(long id) {
+    public void removeUserById(Long id) {
         dao.delete(dao.findById(id).get());
     }
 

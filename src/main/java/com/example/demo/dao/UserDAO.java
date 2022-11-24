@@ -8,14 +8,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
-@Transactional
 @Repository
+@Transactional
 public interface UserDAO extends JpaRepository<User, Long> {
     @Modifying
-    @Query("UPDATE User SET name = :name, lastName = :lastName, age = :age where id = :id")
-    void updateUserById(@Param("name") String name,
-                                @Param("lastName") String lastName,
-                                @Param("age") Byte age,
-                                @Param("id") Long id);
+    @Query("UPDATE User SET name = ?1, lastName = ?2, age = ?3 where id = ?4")
+    void updateUserById( String name, String lastName, Byte age, Long id);
 }
