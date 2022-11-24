@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cars</title>
+</head>
+<body>
+<th:block th:each="user : ${users}">
+  <span th:text="${user}"/>
+  <form th:action="@{/updateUser/{id}(id=${user.getId()})}" style="display: inline" th:method="GET">
+    <input type="submit" value="Update" id="submit">
+  </form>
+  <form th:action="@{/deleteUser/{id}(id=${user.getId()})}" style="display: inline" th:method="DELETE">
+    <input type="submit" value="Delete" id="delete">
+  </form>
+  <br>
+  <br>
+</th:block>
+<form th:action="@{/newPerson}" th:method="GET">
+  <input value="add person" type="submit">
+</form>
+</body>
+</html>
